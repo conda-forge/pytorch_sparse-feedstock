@@ -1,6 +1,5 @@
-{% set pytorch_sparse_proc_type = "cpu" %}
 {% set name = "torch_sparse" %}
-{% set version = "0.6.4" %}
+{% set version = "0.6.1" %}
 
 {% set pytorch_sparse_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}  # [linux or win]
 {% set pytorch_sparse_proc_type = "cpu" %}                                                # [osx]
@@ -11,7 +10,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8698ef4bb3f9a51b278b5fdd2ed1b2f4389e871c135f6cdf38355f3c96709457
+  sha256: 41de6bb39450fc59917c582caa353505d443809af3601c67e4fbaa2284fd1899
 
 build:
   number: 0
