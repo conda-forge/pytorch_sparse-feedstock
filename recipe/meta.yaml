@@ -14,7 +14,7 @@ source:
 
 build:
   number: 1
-  skip: true  # [win or py37]
+  skip: true  # [win]
 
 outputs:
   # A meta-package to select CPU or GPU pytorch_sparse build.
@@ -36,9 +36,10 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
+        - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != "None"]
       host:
         - python
-        - pytorch >=1.4
+        - pytorch
         - setuptools
         - pytest-runner
         - scipy
