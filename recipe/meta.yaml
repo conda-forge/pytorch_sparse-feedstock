@@ -1,8 +1,8 @@
 {% set name = "torch_sparse" %}
 {% set version = "0.6.3" %}
 
-{% set pytorch_sparse_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}  # [linux or win]
-{% set pytorch_sparse_proc_type = "cpu" %}                                                # [osx]
+{% set pytorch_sparse_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}  # [linux64]
+{% set pytorch_sparse_proc_type = "cpu" %}                                                # [not linux64]
 
 package:
   name: py{{ name|lower }}
@@ -13,7 +13,7 @@ source:
   sha256: 2d2bb488e14207187f9856d2a9349851e7a3cc37d0f5cf7c7ed930d0fc8c7531
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
 
 outputs:
@@ -21,7 +21,7 @@ outputs:
   - name: pytorch_sparse_proc
     version: 1.0.0
     build:
-      number: 1
+      number: 0
       string: {{ pytorch_sparse_proc_type }}
     test:
       commands:
@@ -30,13 +30,13 @@ outputs:
   - name: pytorch_sparse
     version: {{ version }}
     build:
-      number: 1
+      number: 2
       script: python -m pip install . -vv
     requirements:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != "None"]
+        - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
       host:
         - python
         - pytorch
@@ -47,13 +47,12 @@ outputs:
       run:
         - python
         - scipy
-        - pytorch >=1.4
+        - pytorch
+        - pytest
+        - pytest-cov
       run_constrained:
         - pytorch_sparse_proc * {{ pytorch_sparse_proc_type }}
     test:
-      requires:
-        - pytest
-        - pytest-cov
       imports:
         - torch_sparse
     about:
