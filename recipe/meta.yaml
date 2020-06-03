@@ -32,9 +32,9 @@ outputs:
     build:
       number: 2
       script: 
-        - export CUDA_HOME=/usr/local/cuda  #  [linux]
-        - export PATH={{ CUDA_HOME }}/bin:{{ PATH }}  #  [linux]
-        - export CPATH={{ CUDA_HOME }}/include:{{ PATH }}  #  [linux]
+        - export CUDA_HOME=/usr/local/cuda  # [linux]
+        - export PATH={{ CUDA_HOME }}/bin:{{ PATH }}  # [linux]
+        - export CPATH={{ CUDA_HOME }}/include:{{ PATH }}  # [linux]
         - python -m pip install . -vv
     requirements:
       build:
