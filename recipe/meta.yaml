@@ -32,10 +32,7 @@ outputs:
     build:
       number: 2
       script: 
-        - export CUDA_HOME="{{ PREFIX }}/cuda"
-        - export PATH="{{ CUDA_HOME }}/bin:{{ PATH }}"
-        - export CPATH="{{ CUDA_HOME }}/include:{{ CPATH }}"
-        - export LD_LIBRARY_PATH="{{ CUDA_HOME }}/lib64:{{ LD_LIBRARY_PATH }}"
+        - export LD_LIBRARY_PATH={{ CUDA_HOME }}/lib64:{{ LD_LIBRARY_PATH }}
         - python -m pip install . -vv
     requirements:
       build:
