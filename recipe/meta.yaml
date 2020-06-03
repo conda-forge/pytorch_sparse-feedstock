@@ -36,7 +36,6 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != "None"]
       host:
         - python
         - pytorch >=1.4
