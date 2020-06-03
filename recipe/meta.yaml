@@ -42,6 +42,7 @@ outputs:
         - pytorch >=1.4
         - setuptools
         - pytest-runner
+        - scipy
         - pip
       run:
         - python
