@@ -13,7 +13,7 @@ source:
   sha256: 2d2bb488e14207187f9856d2a9349851e7a3cc37d0f5cf7c7ed930d0fc8c7531
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 outputs:
@@ -21,7 +21,7 @@ outputs:
   - name: pytorch_sparse_proc
     version: 1.0.0
     build:
-      number: 0
+      number: 1
       string: {{ pytorch_sparse_proc_type }}
     test:
       commands:
@@ -30,7 +30,7 @@ outputs:
   - name: pytorch_sparse
     version: {{ version }}
     build:
-      number: 0
+      number: 1
       script: python -m pip install . -vv
     requirements:
       build:
@@ -39,14 +39,14 @@ outputs:
         - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != "None"]
       host:
         - python
-        - pytorch
+        - pytorch >=1.4
         - setuptools
         - scipy
         - pytest-runner
         - pip
       run:
         - python
-        - pytorch
+        - pytorch >=1.4
       run_constrained:
         - pytorch_sparse_proc * {{ pytorch_sparse_proc_type }}
     test:
