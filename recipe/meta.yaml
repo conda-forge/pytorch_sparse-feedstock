@@ -41,11 +41,11 @@ outputs:
         - python
         - pytorch >=1.4
         - setuptools
-        - scipy
         - pytest-runner
         - pip
       run:
         - python
+        - scipy
         - pytorch >=1.4
       run_constrained:
         - pytorch_sparse_proc * {{ pytorch_sparse_proc_type }}
