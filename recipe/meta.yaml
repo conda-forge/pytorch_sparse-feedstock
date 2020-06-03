@@ -16,6 +16,12 @@ build:
   number: 2
   skip: true  # [win]
 
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
+
 outputs:
   # A meta-package to select CPU or GPU pytorch_sparse build.
   - name: pytorch_sparse_proc
@@ -31,11 +37,7 @@ outputs:
     version: {{ version }}
     build:
       number: 2
-      script: 
-        - export CUDA_HOME={{ PREFIX }}/cuda  # [linux]
-        - export PATH={{ CUDA_HOME }}/bin:{{ PATH }}  # [linux]
-        - export CPATH={{ CUDA_HOME }}/include:{{ PATH }}  # [linux]
-        - python -m pip install . -vv
+      script: python -m pip install . -vv
     requirements:
       build:
         - {{ compiler('c') }}
