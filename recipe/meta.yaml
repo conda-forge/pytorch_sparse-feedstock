@@ -32,6 +32,7 @@ requirements:
     - pytorch
     - pytest
     - pytest-cov
+    - pytorch_scatter
 test:
   imports:
     - torch_sparse
