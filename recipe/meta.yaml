@@ -1,8 +1,8 @@
 {% set name = "torch_sparse" %}
 {% set version = "0.6.3" %}
 
-{% set pytorch_sparse_proc_type = "cpu" if cuda_compiler_version == "None" else "gpu" %}  # [linux or win]
-{% set pytorch_sparse_proc_type = "cpu" %}                                                # [osx]
+{% set pytorch_sparse_proc_type = "cpu" %}  # [linux or win]
+{% set pytorch_sparse_proc_type = "cpu" %}  # [osx]
 
 package:
   name: py{{ name|lower }}
