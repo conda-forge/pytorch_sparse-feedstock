@@ -31,7 +31,9 @@ outputs:
     version: {{ version }}
     build:
       number: 0
-      script: python -m pip install . -vv
+      script: 
+        - export FORCE_CUDA="1"
+        - python -m pip install . -vv
     requirements:
       build:
         - {{ compiler('c') }}
