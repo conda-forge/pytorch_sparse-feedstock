@@ -1,9 +1,6 @@
 {% set name = "torch_sparse" %}
 {% set version = "0.6.3" %}
 
-{% set pytorch_sparse_proc_type = "cpu" %}  # [linux or win]
-{% set pytorch_sparse_proc_type = "cpu" %}  # [osx]
-
 package:
   name: py{{ name|lower }}
   version: {{ version }}
@@ -15,55 +12,32 @@ source:
 build:
   number: 0
   skip: true  # [win]
+  script: 
+    - export NO_CUDA=1
+    - python -m pip install . -vv
 
-outputs:
-  # A meta-package to select CPU or GPU pytorch_sparse build.
-  - name: pytorch_sparse_proc
-    version: 1.0.0
-    build:
-      number: 0
-      string: {{ pytorch_sparse_proc_type }}
-    test:
-      commands:
-        - exit 0
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - python
+    - pytorch
+    - setuptools
+    - scipy
+    - pytest-runner
+    - pip
+  run:
+    - python
+    - scipy
+    - pytorch
+    - pytorch_scatter
+    - pytest
+    - pytest-cov
 
-  - name: pytorch_sparse
-    version: {{ version }}
-    build:
-      number: 0
-      script: 
-        - export FORCE_CPU="1"
-        - export CUDA_VISIBLE_DEVICES=0
-        - python -m pip install . -vv
-    requirements:
-      build:
-        - {{ compiler('c') }}
-        - {{ compiler('cxx') }}
-      host:
-        - python
-        - pytorch
-        - setuptools
-        - scipy
-        - pytest-runner
-        - pip
-      run:
-        - python
-        - scipy
-        - pytorch
-      run_constrained:
-        - pytorch_sparse_proc * {{ pytorch_sparse_proc_type }}
-    test:
-      requires:
-        - pytest
-        - pytest-cov
-      imports:
-        - torch_sparse
-    about:
-      home: https://github.com/rusty1s/pytorch_sparse
-      summary: PyTorch Extension Library of Optimized Autograd Sparse Matrix Operations
-      license: MIT
-      license_file: LICENSE
-      dev_url: https://github.com/rusty1s/pytorch_sparse
+test:
+  imports:
+    - torch_sparse
 
 about:
   home: https://github.com/rusty1s/pytorch_sparse
