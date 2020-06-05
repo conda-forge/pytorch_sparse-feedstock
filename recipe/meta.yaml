@@ -34,6 +34,7 @@ outputs:
       script: 
         - export USE_STATIC_CUDNN="1"  # [linux and cuda_compiler_version != "None"]
         - export USE_STATIC_NCCL="1"   # [linux and cuda_compiler_version != "None"]
+        - sed -i "s|{compiler-bindir}|${CC}|" {{ RECIPE_DIR }}/setup.py  # [linux and cuda_compiler_version != "None"]
         - export FORCE_CUDA="1"        # [linux and cuda_compiler_version != "None"]
         - python -m pip install . -vv
     requirements:
