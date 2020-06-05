@@ -32,6 +32,8 @@ outputs:
     build:
       number: 0
       script: 
+        - export USE_STATIC_CUDNN="1"
+        - export USE_STATIC_NCCL="1"
         - export FORCE_CUDA="1"
         - python -m pip install . -vv
     requirements:
