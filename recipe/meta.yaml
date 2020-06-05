@@ -32,6 +32,7 @@ outputs:
     build:
       number: 0
       script: 
+        - export FORCE_CPU="1"
         - python -m pip install . -vv
     requirements:
       build:
