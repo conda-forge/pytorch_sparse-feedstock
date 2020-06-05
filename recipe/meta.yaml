@@ -32,18 +32,14 @@ outputs:
     build:
       number: 0
       script: 
-        - export FORCE_CUDA="1"        # [linux]
         - python -m pip install . -vv
     requirements:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-#         - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != "None"]
       host:
         - python
         - pytorch
-        - nvcc
-        - nccl
         - setuptools
         - scipy
         - pytest-runner
