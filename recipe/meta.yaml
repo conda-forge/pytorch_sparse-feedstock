@@ -42,12 +42,15 @@ outputs:
       host:
         - python
         - pytorch
+        - nvcc
+        - nccl
         - setuptools
         - scipy
         - pytest-runner
         - pip
       run:
         - python
+        - scipy
         - pytorch
       run_constrained:
         - pytorch_sparse_proc * {{ pytorch_sparse_proc_type }}
