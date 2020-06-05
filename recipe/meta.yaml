@@ -32,7 +32,7 @@ outputs:
     build:
       number: 0
       script: 
-        - export FORCE_CUDA="1"        # [linux and cuda_compiler_version != "None"]
+        - export FORCE_CUDA="1"        # [linux]
         - python -m pip install . -vv
     requirements:
       build:
@@ -42,7 +42,7 @@ outputs:
       host:
         - python
         - pytorch
-        - cudatoolkit-dev  # [linux and cuda_compiler_version != "None"]
+        - cudatoolkit-dev  # [linux]
         - setuptools
         - scipy
         - pytest-runner
