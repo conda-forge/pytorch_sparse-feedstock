@@ -33,6 +33,7 @@ outputs:
       number: 0
       script: 
         - export FORCE_CPU="1"
+        - export CUDA_VISIBLE_DEVICES=0
         - python -m pip install . -vv
     requirements:
       build:
