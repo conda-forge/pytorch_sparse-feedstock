@@ -32,9 +32,6 @@ outputs:
     build:
       number: 0
       script: 
-        - export USE_STATIC_CUDNN="1"  # [linux and cuda_compiler_version != "None"]
-        - export USE_STATIC_NCCL="1"   # [linux and cuda_compiler_version != "None"]
-        - sed -i "s|{compiler-bindir}|${CC}|" {{ SRC_DIR }}/setup.py  # [linux and cuda_compiler_version != "None"]
         - export FORCE_CUDA="1"        # [linux and cuda_compiler_version != "None"]
         - python -m pip install . -vv
     requirements:
@@ -45,6 +42,7 @@ outputs:
       host:
         - python
         - pytorch
+        - cudatoolkit-dev
         - setuptools
         - scipy
         - pytest-runner
