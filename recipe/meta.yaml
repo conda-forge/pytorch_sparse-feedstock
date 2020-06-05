@@ -38,11 +38,11 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != "None"]
+#         - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != "None"]
       host:
         - python
         - pytorch
-        - cudatoolkit-dev
+        - cudatoolkit-dev  # [linux and cuda_compiler_version != "None"]
         - setuptools
         - scipy
         - pytest-runner
