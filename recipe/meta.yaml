@@ -13,8 +13,10 @@ source:
   sha256: 2d2bb488e14207187f9856d2a9349851e7a3cc37d0f5cf7c7ed930d0fc8c7531
 
 build:
-  number: 0
+  number: 1
+  # skip win and gpu builds for now
   skip: true  # [win]
+  skip: true  # [cuda_compiler_version != "None"]
 
 outputs:
   # A meta-package to select CPU or GPU pytorch_sparse build.
@@ -30,13 +32,13 @@ outputs:
   - name: pytorch_sparse
     version: {{ version }}
     build:
-      number: 0
+      number: 1
       script: python -m pip install . -vv
     requirements:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != "None"]
+        - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
       host:
         - python
         - pytorch
