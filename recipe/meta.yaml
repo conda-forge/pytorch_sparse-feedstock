@@ -42,7 +42,6 @@ outputs:
       host:
         - python
         - pytorch
-        - cudatoolkit-dev  # [linux]
         - setuptools
         - scipy
         - pytest-runner
