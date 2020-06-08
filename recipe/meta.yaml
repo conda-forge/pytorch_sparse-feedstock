@@ -32,6 +32,7 @@ requirements:
     - python
     - pytorch
     - pytorch_scatter
+    - scipy
 
 test:
   requires:
