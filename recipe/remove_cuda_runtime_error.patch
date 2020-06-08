@@ -1,0 +1,19 @@
+diff --git a/torch_sparse/__init__.py b/torch_sparse/__init__.py
+index c3901e4..9b2251f 100644
+--- a/torch_sparse/__init__.py
++++ b/torch_sparse/__init__.py
+@@ -23,14 +23,6 @@ if torch.version.cuda is not None:  # pragma: no cover
+         major, minor = int(str(cuda_version)[0:2]), int(str(cuda_version)[3])
+     t_major, t_minor = [int(x) for x in torch.version.cuda.split('.')]
+ 
+-    if t_major != major or t_minor != minor:
+-        raise RuntimeError(
+-            f'Detected that PyTorch and torch_sparse were compiled with '
+-            f'different CUDA versions. PyTorch has CUDA version '
+-            f'{t_major}.{t_minor} and torch_sparse has CUDA version '
+-            f'{major}.{minor}. Please reinstall the torch_sparse that '
+-            f'matches your PyTorch install.')
+-
+ from .storage import SparseStorage  # noqa
+ from .tensor import SparseTensor  # noqa
+ from .transpose import t  # noqa
