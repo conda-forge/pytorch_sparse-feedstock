@@ -8,19 +8,21 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 2d2bb488e14207187f9856d2a9349851e7a3cc37d0f5cf7c7ed930d0fc8c7531
-  patches:
-    - remove_cuda_runtime_error.patch
 
 build:
   number: 0
-  skip: true  # [win]
-  script: {{ PYTHON }} -m pip install . -vv
+  skip: true  # [win or cuda_compiler_version == 'None' or cuda_compiler_version == '10.2']
+  script:
+    - export FORCE_CUDA="1"    # [linux64 and cuda_compiler_version != 'None']
+    - export CC="$GCC"   # [linux64 and cuda_compiler_version != 'None']
+    - export NVCC_FLAGS="--compiler-bindir=${CC}"    # [linux64 and cuda_compiler_version != 'None']
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ compiler('cuda') }}  # [linux and cuda_compiler_version != "None"]
+    - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
   host:
     - python
     - pytorch
@@ -31,12 +33,12 @@ requirements:
   run:
     - python
     - pytorch
+    - pytorch_scatter
     - scipy
-
-test:
-  requires:
     - pytest
     - pytest-cov
+
+test:
   imports:
     - torch_sparse
 
