@@ -1,5 +1,5 @@
 {% set name = "torch_sparse" %}
-{% set version = "0.6.3" %}
+{% set version = "0.6.8" %}
 
 package:
   name: py{{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2d2bb488e14207187f9856d2a9349851e7a3cc37d0f5cf7c7ed930d0fc8c7531
+  sha256: 312fb5ae6e4e575fca4bbc0bd092af85e7679d5b8e53459f24492fc2a073c7b6
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win or cuda_compiler_version == 'None' or cuda_compiler_version == '10.2']
   script:
     - export FORCE_CUDA="1"    # [linux64 and cuda_compiler_version != 'None']
