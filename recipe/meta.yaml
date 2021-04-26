@@ -1,5 +1,5 @@
 {% set name = "torch_sparse" %}
-{% set version = "0.6.3" %}
+{% set version = "0.6.9" %}
 
 package:
   name: py{{ name|lower }}
@@ -7,36 +7,38 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2d2bb488e14207187f9856d2a9349851e7a3cc37d0f5cf7c7ed930d0fc8c7531
+  sha256: 089a3200044d0d392a4d0d84803f926da28a44532fe30f4c8d6c34f567680db3
 
 build:
-  number: 2
-  skip: true  # [win or cuda_compiler_version == 'None' or cuda_compiler_version == '10.2']
+  number: 0
+  skip: true  # [win]
   script:
-    - export FORCE_CUDA="1"    # [linux64 and cuda_compiler_version != 'None']
-    - export CC="$GCC"   # [linux64 and cuda_compiler_version != 'None']
-    - export NVCC_FLAGS="--compiler-bindir=${CC}"    # [linux64 and cuda_compiler_version != 'None']
+    - export FORCE_CUDA="1"    # [linux64 and cuda_compiler_version not in (undefined, 'None')]
+    - export CC="$GCC"   # [linux64 and cuda_compiler_version not in (undefined, 'None')]
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ compiler('cuda') }}  # [linux64 and cuda_compiler_version != "None"]
+    - {{ compiler('cuda') }}  # [cuda_compiler_version not in (undefined, 'None')]
   host:
     - python
-    - pytorch
-    - setuptools
-    - scipy
-    - pytest-runner
     - pip
+    - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
+    - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
+    - setuptools
+    - pytest-runner
+    - scipy
   run:
     - python
     - pytorch
-    - pytorch_scatter
-    - scipy
+    - {{ pin_compatible('pytorch-gpu') }}  # [cuda_compiler_version not in (undefined, 'None')]
+    - {{ pin_compatible('pytorch-cpu') }}  # [osx or cuda_compiler_version in (undefined, 'None')]
     - pytest
     - pytest-cov
+    - scipy
+    - pytorch_scatter
 
 test:
   imports:
