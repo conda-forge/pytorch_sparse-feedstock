@@ -10,7 +10,7 @@ source:
   sha256: 089a3200044d0d392a4d0d84803f926da28a44532fe30f4c8d6c34f567680db3
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   script:
     - export FORCE_CUDA="1"    # [linux64 and cuda_compiler_version not in (undefined, 'None')]
@@ -53,6 +53,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - mxr-conda
     - rluria14
     - oblute
     - ndmaxar
