@@ -49,9 +49,3 @@ cdt_name:  # [linux]
   - cos7   # [linux64]                  # CUDA 11.0
   - cos7   # [linux64]                  # CUDA 11.1
   - cos7   # [linux64]                  # CUDA 11.2
-
-
-c_compiler_version:
-- '7'                 # [linux]
-cxx_compiler_version:
-- '7'                 # [linux]
