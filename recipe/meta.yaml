@@ -18,12 +18,12 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ compiler('cuda') }}               # [cuda_compiler_version not in (undefined, 'None')]
+    - {{ compiler('cuda') }}  # [cuda_compiler_version not in (undefined, 'None')]
   host:
     - python
     - pip
-    - pytorch-gpu                          # [cuda_compiler_version not in (undefined, 'None')]
-    - pytorch-cpu                          # [osx or cuda_compiler_version in (undefined, 'None')]
+    - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
+    - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
     - setuptools
     - pytest-runner
     - scipy
@@ -35,7 +35,6 @@ requirements:
     - pytest
     - pytest-cov
     - scipy
-    - pytorch_scatter
 
 test:
   imports:
