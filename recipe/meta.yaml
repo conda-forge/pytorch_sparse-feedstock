@@ -25,6 +25,7 @@ requirements:
   host:
     - python
     - pip
+    - pytest-runner
     # pytorch 1.8 is the latest supported version of conda-forge at build time
     - pytorch 1.8
     - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
