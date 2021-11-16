@@ -1,5 +1,5 @@
-About pytorch_sparse
-====================
+About torch-sparse
+==================
 
 Home: https://github.com/rusty1s/pytorch_sparse
 
@@ -29,108 +29,24 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_cuda_compiler_version10.2python3.7.____cpython</td>
+              <td>linux_64_python3.7.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version10.2python3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_python3.7.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version10.2python3.8.____cpython</td>
+              <td>linux_64_python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version10.2python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version10.2python3.9.____cpython</td>
+              <td>linux_64_python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version10.2python3.9.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_version11.0python3.7.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.0python3.7.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_version11.0python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.0python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_version11.0python3.9.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.0python3.9.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_version11.1python3.7.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.1python3.7.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_version11.1python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.1python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_version11.1python3.9.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.1python3.9.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_version11.2python3.7.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.2python3.7.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_version11.2python3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.2python3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_version11.2python3.9.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_version11.2python3.9.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonepython3.7.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_versionNonepython3.7.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonepython3.8.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_versionNonepython3.8.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonepython3.9.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_cuda_compiler_versionNonepython3.9.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=linux&configuration=linux_64_python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -154,6 +70,27 @@ Current build status
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=osx&configuration=osx_64_python3.9.____cpython" alt="variant">
                 </a>
               </td>
+            </tr><tr>
+              <td>win_64_python3.7.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=win&configuration=win_64_python3.7.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=win&configuration=win_64_python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9914&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pytorch_sparse-feedstock?branchName=master&jobName=win&configuration=win_64_python3.9.____cpython" alt="variant">
+                </a>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -167,28 +104,28 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-pytorch_sparse-green.svg)](https://anaconda.org/conda-forge/pytorch_sparse) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pytorch_sparse.svg)](https://anaconda.org/conda-forge/pytorch_sparse) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pytorch_sparse.svg)](https://anaconda.org/conda-forge/pytorch_sparse) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pytorch_sparse.svg)](https://anaconda.org/conda-forge/pytorch_sparse) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-torch--sparse-green.svg)](https://anaconda.org/conda-forge/torch-sparse) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/torch-sparse.svg)](https://anaconda.org/conda-forge/torch-sparse) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/torch-sparse.svg)](https://anaconda.org/conda-forge/torch-sparse) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/torch-sparse.svg)](https://anaconda.org/conda-forge/torch-sparse) |
 
-Installing pytorch_sparse
-=========================
+Installing torch-sparse
+=======================
 
-Installing `pytorch_sparse` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `torch-sparse` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `pytorch_sparse` can be installed with:
+Once the `conda-forge` channel has been enabled, `torch-sparse` can be installed with:
 
 ```
-conda install pytorch_sparse
+conda install torch-sparse
 ```
 
-It is possible to list all of the versions of `pytorch_sparse` available on your platform with:
+It is possible to list all of the versions of `torch-sparse` available on your platform with:
 
 ```
-conda search pytorch_sparse --channel conda-forge
+conda search torch-sparse --channel conda-forge
 ```
 
 
@@ -231,17 +168,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating pytorch_sparse-feedstock
-=================================
+Updating torch-sparse-feedstock
+===============================
 
-If you would like to improve the pytorch_sparse recipe or build a new
+If you would like to improve the torch-sparse recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/pytorch_sparse-feedstock are
+Note that all branches in the conda-forge/torch-sparse-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
