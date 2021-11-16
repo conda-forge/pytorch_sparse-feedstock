@@ -26,6 +26,7 @@ requirements:
   host:
     - pip
     - python
+    - pytorch >=1.8,<1.10
     - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
     - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
     - setuptools
