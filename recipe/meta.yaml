@@ -42,6 +42,7 @@ requirements:
     - pytest
     - pytest-cov
     - pytorch_scatter
+    - cudatoolkit ==11.1
 
 test:
   imports:
