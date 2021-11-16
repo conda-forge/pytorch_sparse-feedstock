@@ -25,14 +25,14 @@ requirements:
   host:
     - python
     - pip
-    - pytorch-gpu >=1.8  # [cuda_compiler_version not in (undefined, 'None')]
-    - pytorch-cpu >=1.8  # [osx or cuda_compiler_version in (undefined, 'None')]
+    - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
+    - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
     - setuptools
     - pytest-runner
     - scipy
   run:
     - python
-    - pytorch >=1.8
+    - pytorch ==1.9
     - {{ pin_compatible('pytorch-gpu') }}  # [cuda_compiler_version not in (undefined, 'None')]
     - {{ pin_compatible('pytorch-cpu') }}  # [osx or cuda_compiler_version in (undefined, 'None')]
     - pytest
