@@ -3,7 +3,7 @@
 
 
 package:
-  name: {{ name|lower }}
+  name: py{{ name|lower }}
   version: {{ version }}
 
 source:
@@ -13,18 +13,34 @@ source:
 build:
   number: 0
   skip: true   # [win]
-  script: {{ PYTHON }} -m pip install . -vv
+  script: 
+    - export FORCE_CUDA="1"    # [linux64 and cuda_compiler_version not in (undefined, 'None')]
+    - export CC="$GCC"   # [linux64 and cuda_compiler_version not in (undefined, 'None')]
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - {{ compiler('cuda') }}  # [cuda_compiler_version not in (undefined, 'None')]
   host:
     - pip
     - python
+    - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
+    - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
+    - setuptools
+    - pytest-runner
+    - scipy
+
   run:
     - python
     - pytorch >=1.8,<1.10
     - scipy
+    - {{ pin_compatible('pytorch-gpu') }}  # [cuda_compiler_version not in (undefined, 'None')]
+    - {{ pin_compatible('pytorch-cpu') }}  # [osx or cuda_compiler_version in (undefined, 'None')]
+    - pytest
+    - pytest-cov
+    - pytorch_scatter
 
 test:
   imports:
