@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [win]
+  skip: true  # [win, py2k]
   script:
     - export FORCE_CUDA="1"    # [linux64 and cuda_compiler_version not in (undefined, 'None')]
     - export CC="$GCC"   # [linux64 and cuda_compiler_version not in (undefined, 'None')]
@@ -43,6 +43,8 @@ requirements:
 test:
   imports:
     - torch_sparse
+  requires:
+    - pip
 
 about:
   home: https://github.com/rusty1s/pytorch_sparse
