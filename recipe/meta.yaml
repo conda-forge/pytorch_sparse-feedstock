@@ -25,8 +25,8 @@ requirements:
   host:
     - python
     - pip
-    - pytorch-gpu >=1.8 # [cuda_compiler_version not in (undefined, 'None')]
-    - pytorch-cpu >=1.8 # [osx or cuda_compiler_version in (undefined, 'None')]
+    - pytorch-gpu >=1.8  # [cuda_compiler_version not in (undefined, 'None')]
+    - pytorch-cpu >=1.8  # [osx or cuda_compiler_version in (undefined, 'None')]
     - setuptools
     - pytest-runner
     - scipy
