@@ -32,7 +32,7 @@ requirements:
     - scipy
   run:
     - python
-    - pytorch
+    - pytorch >=1.8
     - {{ pin_compatible('pytorch-gpu') }}  # [cuda_compiler_version not in (undefined, 'None')]
     - {{ pin_compatible('pytorch-cpu') }}  # [osx or cuda_compiler_version in (undefined, 'None')]
     - pytest
