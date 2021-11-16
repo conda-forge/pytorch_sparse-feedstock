@@ -43,6 +43,8 @@ requirements:
 test:
   imports:
     - torch_sparse
+  commands:
+    - pip check
   requires:
     - pip
 
