@@ -21,27 +21,15 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ compiler('cuda') }}  # [cuda_compiler_version not in (undefined, 'None')]
+
   host:
     - pip
     - python
-    - pytorch >=1.8.0
-    - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
-    - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
-    - setuptools
-    - pytest-runner
-    - scipy
 
   run:
     - python
     - pytorch >=1.8.0
     - scipy
-    - {{ pin_compatible('pytorch-gpu') }}  # [cuda_compiler_version not in (undefined, 'None')]
-    - {{ pin_compatible('pytorch-cpu') }}  # [osx or cuda_compiler_version in (undefined, 'None')]
-    - pytest
-    - pytest-cov
-    - pytorch_scatter
 
 test:
   imports:
