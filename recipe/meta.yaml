@@ -27,7 +27,6 @@ requirements:
     - pip
     - python
     - pytorch >=1.8.0
-    - cudatoolkit ==11.1
     - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
     - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
     - setuptools
@@ -43,7 +42,6 @@ requirements:
     - pytest
     - pytest-cov
     - pytorch_scatter
-    - cudatoolkit ==11.1
 
 test:
   imports:
