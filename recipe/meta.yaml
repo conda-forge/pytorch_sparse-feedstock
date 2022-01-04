@@ -25,10 +25,11 @@ requirements:
   host:
     - pip
     - python
+    - pytorch >=1.10.0
 
   run:
     - python
-    - pytorch >=1.8.0
+    - pytorch >=1.10.0
     - scipy
 
 test:
