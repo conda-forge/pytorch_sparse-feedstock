@@ -25,6 +25,7 @@ requirements:
   host:
     - python
     - pip
+    - pytorch {{ pytorch_version }}
     - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
     - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
     - setuptools
@@ -32,7 +33,7 @@ requirements:
     - scipy
   run:
     - python
-    - pytorch
+    - pytorch {{ pytorch_version }}
     - {{ pin_compatible('pytorch-gpu') }}  # [cuda_compiler_version not in (undefined, 'None')]
     - {{ pin_compatible('pytorch-cpu') }}  # [osx or cuda_compiler_version in (undefined, 'None')]
     - pytest
