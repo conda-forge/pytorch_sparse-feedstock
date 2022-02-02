@@ -1,5 +1,7 @@
 {% set name = "torch_sparse" %}
 {% set version = "0.6.10" %}
+# see github.com/conda-forge/conda-forge.github.io/issues/1059 for naming discussion
+{% set torch_proc_type = "cuda" if cuda_compiler_version != "None" else "cpu" %}
 
 package:
   name: py{{ name|lower }}
@@ -25,17 +27,13 @@ requirements:
   host:
     - python
     - pip
-    - pytorch {{ pytorch_version }}
-    - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
-    - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
+    - pytorch {{ pytorch_version }} {{ torch_proc_type }}*
     - setuptools
     - pytest-runner
     - scipy
   run:
     - python
-    - pytorch {{ pytorch_version }}
-    - {{ pin_compatible('pytorch-gpu') }}  # [cuda_compiler_version not in (undefined, 'None')]
-    - {{ pin_compatible('pytorch-cpu') }}  # [osx or cuda_compiler_version in (undefined, 'None')]
+    - pytorch {{ pytorch_version }} {{ torch_proc_type }}*
     - pytest
     - pytest-cov
     - scipy
