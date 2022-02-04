@@ -27,13 +27,13 @@ requirements:
   host:
     - python
     - pip
-    - pytorch {{ pytorch_version }} {{ torch_proc_type }}*
+    - pytorch {{ pytorch }} {{ torch_proc_type }}*
     - setuptools
     - pytest-runner
     - scipy
   run:
     - python
-    - pytorch {{ pytorch_version }} {{ torch_proc_type }}*
+    - pytorch {{ pytorch }} {{ torch_proc_type }}*
     - pytest
     - pytest-cov
     - scipy
