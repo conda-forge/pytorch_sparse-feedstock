@@ -27,17 +27,30 @@ requirements:
   host:
     - python
     - pip
-    - pytorch {{ pytorch }} {{ torch_proc_type }}*
+    - pytorch
+    - pytorch =*={{ torch_proc_type }}*
     - setuptools
     - pytest-runner
     - scipy
   run:
     - python
-    - pytorch {{ pytorch }} {{ torch_proc_type }}*
+    # Use the run_export to depend on pytorch
+    # - pytorch 
     - pytest
     - pytest-cov
     - scipy
     - pytorch_scatter
+  run_constrained:
+    # 2022/02/05 hmaarrfk
+    # While conda packaging seems to allow us to specify
+    # constraints on the same package in different lines
+    # the resulting package doesn't have the ability to
+    # be specified in multiples lines
+    # This makes it tricky to use run_exports
+    # we add the GPU constraint in the run_constrained
+    # to allow us to have "two" constraints on the
+    # running package
+    - pytorch =*={{ torch_proc_type }}*
 
 test:
   imports:
