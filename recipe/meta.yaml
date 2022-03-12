@@ -1,5 +1,7 @@
 {% set name = "torch_sparse" %}
 {% set version = "0.6.10" %}
+# see github.com/conda-forge/conda-forge.github.io/issues/1059 for naming discussion
+{% set torch_proc_type = "cuda" if cuda_compiler_version != "None" else "cpu" %}
 
 package:
   name: py{{ name|lower }}
@@ -10,7 +12,7 @@ source:
   sha256: 2e2c7a3649d04e19b3b3960c1d7fc0e767017c93587de1e0d6eb7fda613a6b82
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   script:
     - export FORCE_CUDA="1"    # [linux64 and cuda_compiler_version not in (undefined, 'None')]
@@ -25,20 +27,30 @@ requirements:
   host:
     - python
     - pip
-    - pytorch-gpu  # [cuda_compiler_version not in (undefined, 'None')]
-    - pytorch-cpu  # [osx or cuda_compiler_version in (undefined, 'None')]
+    - pytorch
+    - pytorch =*={{ torch_proc_type }}*
     - setuptools
     - pytest-runner
     - scipy
   run:
     - python
-    - pytorch
-    - {{ pin_compatible('pytorch-gpu') }}  # [cuda_compiler_version not in (undefined, 'None')]
-    - {{ pin_compatible('pytorch-cpu') }}  # [osx or cuda_compiler_version in (undefined, 'None')]
+    # Use the run_export to depend on pytorch
+    # - pytorch 
     - pytest
     - pytest-cov
     - scipy
     - pytorch_scatter
+  run_constrained:
+    # 2022/02/05 hmaarrfk
+    # While conda packaging seems to allow us to specify
+    # constraints on the same package in different lines
+    # the resulting package doesn't have the ability to
+    # be specified in multiples lines
+    # This makes it tricky to use run_exports
+    # we add the GPU constraint in the run_constrained
+    # to allow us to have "two" constraints on the
+    # running package
+    - pytorch =*={{ torch_proc_type }}*
 
 test:
   imports:
@@ -57,3 +69,4 @@ extra:
     - rluria14
     - oblute
     - ndmaxar
+    - mikemhenry
