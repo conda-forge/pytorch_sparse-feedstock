@@ -12,7 +12,7 @@ source:
   sha256: 2e2c7a3649d04e19b3b3960c1d7fc0e767017c93587de1e0d6eb7fda613a6b82
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
   script:
     - export FORCE_CUDA="1"    # [linux64 and cuda_compiler_version not in (undefined, 'None')]
