@@ -6,6 +6,7 @@ set -euxo pipefail
 if [[ "$target_platform" == linux-64 && -n ${CUDA_HOME-} ]];
     export FORCE_CUDA="1"
     export CC="$GCC"
+fi
 
 # function for facilitate version comparison; cf. https://stackoverflow.com/a/37939589
 function version2int { echo "$@" | awk -F. '{ printf("%d%02d\n", $1, $2); }'; }
