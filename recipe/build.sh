@@ -2,40 +2,31 @@
 
 set -euxo pipefail
 
-# Check if we are on linux but there is no cuda
-if [[ "$target_platform" == linux-64 && -n ${CUDA_HOME-} ]];
+if [[ ${cuda_compiler_version} != "None" ]]; then
+    export TORCH_CUDA_ARCH_LIST="3.5;5.0+PTX"
+    if [[ ${cuda_compiler_version} == 9.0* ]]; then
+        export TORCH_CUDA_ARCH_LIST="$TORCH_CUDA_ARCH_LIST;6.0;7.0"
+    elif [[ ${cuda_compiler_version} == 9.2* ]]; then
+        export TORCH_CUDA_ARCH_LIST="$TORCH_CUDA_ARCH_LIST;6.0;6.1;7.0"
+    elif [[ ${cuda_compiler_version} == 10.* ]]; then
+        export TORCH_CUDA_ARCH_LIST="$TORCH_CUDA_ARCH_LIST;6.0;6.1;7.0;7.5"
+    elif [[ ${cuda_compiler_version} == 11.0* ]]; then
+        export TORCH_CUDA_ARCH_LIST="$TORCH_CUDA_ARCH_LIST;6.0;6.1;7.0;7.5;8.0"
+    elif [[ ${cuda_compiler_version} == 11.1 ]]; then
+        export TORCH_CUDA_ARCH_LIST="$TORCH_CUDA_ARCH_LIST;6.0;6.1;7.0;7.5;8.0;8.6"
+    elif [[ ${cuda_compiler_version} == 11.2 ]]; then
+        export TORCH_CUDA_ARCH_LIST="$TORCH_CUDA_ARCH_LIST;6.0;6.1;7.0;7.5;8.0;8.6"
+    else
+        echo "unsupported cuda version. edit build_pytorch.sh"
+        exit 1
+    fi
+fi
+
+if [[ ${cuda_compiler_version} == "None"  && "$target_platform" == linux-64 ]]; then
     export FORCE_CUDA="1"
     export CC="$GCC"
 fi
 
-# function for facilitate version comparison; cf. https://stackoverflow.com/a/37939589
-function version2int { echo "$@" | awk -F. '{ printf("%d%02d\n", $1, $2); }'; }
 
-# adapted from https://github.com/conda-forge/faiss-split-feedstock/blob/master/recipe/build-lib.sh
-declare -a CUDA_CONFIG_ARGS
-
-# the following are all the x86-relevant gpu arches; for building aarch64-packages, add: 53, 62, 72
-ARCHES=(52 60 61 70)
-# cuda 11.0 deprecates arches 35, 50
-DEPRECATED_IN_11=(35 50)
-if [ $(version2int $cuda_compiler_version) -ge $(version2int "11.1") ]; then
-    # Ampere support for GeForce 30 (sm_86) needs cuda >= 11.1
-    LATEST_ARCH=86
-    # ARCHES does not contain LATEST_ARCH; see usage below
-    ARCHES=( "${ARCHES[@]}" 75 80 )
-elif [ $(version2int $cuda_compiler_version) -ge $(version2int "11.0") ]; then
-    # Ampere support for A100 (sm_80) needs cuda >= 11.0
-    LATEST_ARCH=80
-    ARCHES=( "${ARCHES[@]}" 75 )
-elif [ $(version2int $cuda_compiler_version) -ge $(version2int "10.0") ]; then
-    # Turing support (sm_75) needs cuda >= 10.0
-    LATEST_ARCH=75
-    ARCHES=( "${DEPRECATED_IN_11[@]}" "${ARCHES[@]}" )
-fi
-for arch in "${ARCHES[@]}"; do
-    TORCH_CUDA_ARCH_LIST="${CMAKE_CUDA_ARCHS+${CMAKE_CUDA_ARCHS};}${arch}"
-done
-export TORCH_CUDA_ARCH_LIST
-echo $TORCH_CUDA_ARCH_LIST
 echo "Installing"
 ${PYTHON} -m pip install . -vv
