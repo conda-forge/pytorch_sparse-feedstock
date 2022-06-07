@@ -14,9 +14,6 @@ source:
 build:
   number: 0
   skip: true  # [win]
-  script:
-    - export FORCE_CUDA="1"    # [linux64 and cuda_compiler_version not in (undefined, 'None')]
-    - export CC="$GCC"   # [linux64 and cuda_compiler_version not in (undefined, 'None')]
 
 requirements:
   build:

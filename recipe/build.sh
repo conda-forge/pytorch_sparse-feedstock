@@ -2,6 +2,11 @@
 
 set -euxo pipefail
 
+# Check if we are on linux but there is no cuda
+if [[ "$target_platform" == linux-64 && -n ${CUDA_HOME-} ]];
+    export FORCE_CUDA="1"
+    export CC="$GCC"
+
 # function for facilitate version comparison; cf. https://stackoverflow.com/a/37939589
 function version2int { echo "$@" | awk -F. '{ printf("%d%02d\n", $1, $2); }'; }
 
@@ -29,6 +34,7 @@ fi
 for arch in "${ARCHES[@]}"; do
     TORCH_CUDA_ARCH_LIST="${CMAKE_CUDA_ARCHS+${CMAKE_CUDA_ARCHS};}${arch}"
 done
+export TORCH_CUDA_ARCH_LIST
 echo $TORCH_CUDA_ARCH_LIST
 echo "Installing"
 ${PYTHON} -m pip install . -vv
