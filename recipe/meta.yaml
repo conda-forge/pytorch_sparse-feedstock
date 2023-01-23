@@ -11,7 +11,7 @@ source:
   sha256: 7657cfdcac221fb92aa00af7e6032853a7d2cc0d58151d9436485094ab7635ac
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   # as of pytorch 1.13, conda-forge only builds for CUDA 11.2+, see
   # https://github.com/conda-forge/conda-forge-pinning-feedstock/issues/3491
