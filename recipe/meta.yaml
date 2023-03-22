@@ -1,4 +1,4 @@
-{% set version = "0.6.16" %}
+{% set version = "0.6.17" %}
 # see github.com/conda-forge/conda-forge.github.io/issues/1059 for naming discussion
 {% set torch_proc_type = "cuda" if cuda_compiler_version != "None" else "cpu" %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/t/torch_sparse/torch_sparse-{{ version }}.tar.gz
-  sha256: 7657cfdcac221fb92aa00af7e6032853a7d2cc0d58151d9436485094ab7635ac
+  sha256: 06e268dd77f73eb641da8f9383306d7afac6423383c9197b9df120955e2a96bd
 
 build:
   number: 0
