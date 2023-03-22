@@ -1,11 +1,11 @@
-About pytorch_sparse
-====================
+About pytorch_sparse-feedstock
+==============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pytorch_sparse-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/rusty1s/pytorch_sparse
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pytorch_sparse-feedstock/blob/main/LICENSE.txt)
 
 Summary: PyTorch Extension Library of Optimized Autograd Sparse Matrix Operations
 
