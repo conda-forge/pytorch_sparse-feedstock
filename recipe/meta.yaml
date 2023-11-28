@@ -32,7 +32,6 @@ requirements:
     {% if cuda_major >= 12 %}
     - cuda-driver-dev
     - cuda-nvrtc-dev
-    - libcusparse-dev
     {% endif %}
   host:
     - python
@@ -50,6 +49,7 @@ requirements:
     - cuda-nvml-dev
     - libcublas-dev
     - libcusparse-dev
+    - libcusolver-dev 
     {% endif %}
  
   run:
