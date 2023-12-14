@@ -29,10 +29,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('cuda') }}  # [cuda_compiler_version not in (undefined, 'None')]
-    {% if cuda_major >= 12 %}
-    - cuda-driver-dev
-    - cuda-nvrtc-dev
-    {% endif %}
   host:
     - python
     - pip
