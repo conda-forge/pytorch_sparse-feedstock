@@ -5,7 +5,6 @@ set -euxo pipefail
 if [[ ${cuda_compiler_version} != "None" && "$target_platform" == linux-64 ]]; then
     export TORCH_CUDA_ARCH_LIST="3.5;5.0"
     export FORCE_CUDA="1"
-    export CC="$GCC -I$PREFIX/include"
     if [[ ${cuda_compiler_version} == 9.0* ]]; then
         export TORCH_CUDA_ARCH_LIST="$TORCH_CUDA_ARCH_LIST;6.0;7.0+PTX"
     elif [[ ${cuda_compiler_version} == 9.2* ]]; then
@@ -26,6 +25,16 @@ if [[ ${cuda_compiler_version} != "None" && "$target_platform" == linux-64 ]]; t
         echo "unsupported cuda version. edit build_pytorch.sh"
         exit 1
     fi
+    # create a compiler shim because build checks whether $CC exists,
+    # so we cannot pass flags in that variable; cannot use regular
+    # compiler activation because nvcc doesn't understand most of the
+    # flags, but we need to pass our main include directory at least.
+    cat > $RECIPE_DIR/gcc_shim <<"EOF"
+#!/bin/sh
+exec $GCC -I$PREFIX/include "$@"
+EOF
+    chmod +x $RECIPE_DIR/gcc_shim
+    export CC="$RECIPE_DIR/gcc_shim"
 fi
 
 
