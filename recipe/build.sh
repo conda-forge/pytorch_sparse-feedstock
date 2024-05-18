@@ -5,7 +5,7 @@ set -euxo pipefail
 if [[ ${cuda_compiler_version} != "None" && "$target_platform" == linux-64 ]]; then
     export TORCH_CUDA_ARCH_LIST="3.5;5.0"
     export FORCE_CUDA="1"
-    export CC="$GCC"
+    export CC="$GCC -I$PREFIX/include"
     if [[ ${cuda_compiler_version} == 9.0* ]]; then
         export TORCH_CUDA_ARCH_LIST="$TORCH_CUDA_ARCH_LIST;6.0;7.0+PTX"
     elif [[ ${cuda_compiler_version} == 9.2* ]]; then
