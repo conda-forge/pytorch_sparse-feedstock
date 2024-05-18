@@ -32,6 +32,7 @@ requirements:
   host:
     - python
     - pip
+    - pybind11
     - pytorch
     - pytorch =*={{ torch_proc_type }}*
     - setuptools
