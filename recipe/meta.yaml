@@ -17,7 +17,7 @@ source:
   sha256: 2f14c510a6e93f404c6ea357210615b3c15a71731f9dbd86f25434e34fb5a741
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
@@ -26,17 +26,20 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - pytorch                                # [build_platform != target_platform]
     - pytorch =*={{ torch_proc_type }}*      # [build_platform != target_platform]
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('cuda') }}  # [cuda_compiler_version not in (undefined, 'None')]
   host:
     - python
     - pip
+    - pybind11
     - pytorch
     - pytorch =*={{ torch_proc_type }}*
     - setuptools
     - pytest-runner
     - scipy
+    - libxcrypt               # [linux and py<39]
     {% if cuda_major >= 12 %}
     - cuda-driver-dev
     - cuda-cudart-dev
