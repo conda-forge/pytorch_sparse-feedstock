@@ -17,7 +17,7 @@ source:
   sha256: 2f14c510a6e93f404c6ea357210615b3c15a71731f9dbd86f25434e34fb5a741
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
 
 requirements:
@@ -28,6 +28,7 @@ requirements:
     - pytorch =*={{ torch_proc_type }}*      # [build_platform != target_platform]
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - {{ compiler('cuda') }}  # [cuda_compiler_version not in (undefined, 'None')]
   host:
