@@ -9,7 +9,7 @@ c_stdlib_version:
 cdt_name:
 - cos7
 channel_sources:
-- conda-forge/label/python_rc,conda-forge
+- conda-forge
 channel_targets:
 - conda-forge main
 cuda_compiler:
@@ -29,7 +29,7 @@ pin_run_as_build:
 python:
 - 3.13.* *_cp313
 pytorch:
-- '2.4'
+- '2.5'
 target_platform:
 - linux-64
 zip_keys:
@@ -40,5 +40,3 @@ zip_keys:
   - cuda_compiler
   - cuda_compiler_version
   - docker_image
-- - python
-  - channel_sources
