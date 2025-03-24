@@ -17,7 +17,7 @@ source:
   sha256: 2f14c510a6e93f404c6ea357210615b3c15a71731f9dbd86f25434e34fb5a741
 
 build:
-  number: 6
+  number: 7
   skip: true  # [win]
   # pytorch in conda-forge does not support CUDA 11.8 as of v2.5
   skip: true  # [cuda_compiler_version == "11.8"]
@@ -41,8 +41,8 @@ requirements:
     - setuptools
     - pytest-runner
     - scipy
-    - libxcrypt               # [linux and py<39]
     {% if cuda_major >= 12 %}
+    - cuda-version {{ cuda_compiler_version }}
     - cuda-driver-dev
     - cuda-cudart-dev
     - cuda-nvrtc-dev
