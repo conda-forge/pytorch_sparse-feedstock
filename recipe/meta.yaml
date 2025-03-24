@@ -41,9 +41,8 @@ requirements:
     - setuptools
     - pytest-runner
     - scipy
-    - libxcrypt               # [linux and py<39]
     {% if cuda_major >= 12 %}
-    - cuda-version {{ cuda_compiler_version }}  # [cuda_compiler_version != "None"]
+    - cuda-version {{ cuda_compiler_version }}
     - cuda-driver-dev
     - cuda-cudart-dev
     - cuda-nvrtc-dev
