@@ -181,7 +181,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-pytorch_sparse-green.svg)](https://anaconda.org/conda-forge/pytorch_sparse) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pytorch_sparse.svg)](https://anaconda.org/conda-forge/pytorch_sparse) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pytorch_sparse.svg)](https://anaconda.org/conda-forge/pytorch_sparse) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pytorch_sparse.svg)](https://anaconda.org/conda-forge/pytorch_sparse) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pytorch__sparse-green.svg)](https://anaconda.org/conda-forge/pytorch_sparse) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pytorch_sparse.svg)](https://anaconda.org/conda-forge/pytorch_sparse) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pytorch_sparse.svg)](https://anaconda.org/conda-forge/pytorch_sparse) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pytorch_sparse.svg)](https://anaconda.org/conda-forge/pytorch_sparse) |
 
 Installing pytorch_sparse
 =========================
