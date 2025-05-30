@@ -27,7 +27,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - pytorch                                # [build_platform != target_platform]
-    - pytorch =*={{ torch_proc_type }}*      # [build_platform != target_platform]
+    - pytorch * {{ torch_proc_type }}*       # [build_platform != target_platform]
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
@@ -37,7 +37,7 @@ requirements:
     - pip
     - pybind11
     - pytorch
-    - pytorch =*={{ torch_proc_type }}*
+    - pytorch * {{ torch_proc_type }}*
     - setuptools
     - pytest-runner
     - scipy
@@ -64,7 +64,7 @@ requirements:
   run_constrained:
     # additional run constraint to the one from the (version-only) run_export;
     # constraining the CPU builds to CPU pytorch isn't 100% necessary, but cleaner
-    - pytorch =*={{ torch_proc_type }}*
+    - pytorch * {{ torch_proc_type }}*
 
 test:
   imports:
