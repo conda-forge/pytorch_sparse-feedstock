@@ -4,8 +4,8 @@ set -euxo pipefail
 
 if [[ ${cuda_compiler_version} != "None" && "$target_platform" == linux-64 ]]; then
     export FORCE_CUDA="1"
-    if [[ ${cuda_compiler_version} == 12.6 ]]; then
-        export TORCH_CUDA_ARCH_LIST="5.0;6.0;6.1;7.0;7.5;8.0;8.6;8.9;9.0+PTX"
+    if [[ ${cuda_compiler_version} == 12.9 ]]; then
+        export TORCH_CUDA_ARCH_LIST="5.0;6.0;7.0;7.5;8.0;8.6;8.9;9.0;10.0;12.0+PTX"
     else
         echo "unsupported cuda version. edit build_pytorch.sh"
         exit 1
