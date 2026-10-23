@@ -13,11 +13,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/t/torch_sparse/torch_sparse-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/t/torch_sparse/torch_sparse-{{ version }}.tar.gz
   sha256: 2f14c510a6e93f404c6ea357210615b3c15a71731f9dbd86f25434e34fb5a741
 
 build:
-  number: 13
+  number: 14
   skip: true  # [win]
 
 requirements:
