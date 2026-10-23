@@ -1,5 +1,3 @@
-azure:
-  free_disk_space: true
 conda_build:
   pkg_format: '2'
 conda_forge_output_validation: true
@@ -10,3 +8,5 @@ provider:
   linux_aarch64: default
   osx_arm64: default
 test: native_and_emulated
+workflow_settings:
+  free_disk_space: quick
